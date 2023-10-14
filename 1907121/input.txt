@@ -1,0 +1,24 @@
+// This is sa,ple program
+// Rol:: 1907121
+TW sample.h
+
+REM MAIN()
+{
+    REM sum = 0, count = 5, range.
+    SUK pi = 3.1416.
+    KOK s = "Hello, Chief!".
+
+    BAGWI (REM i = 1. i<= count. i++){
+        sum += i.
+        IMO (sum == range){
+            FUNU("Sum is equal to range.").
+        }
+        IMOYA (sum > range){
+            FUNU("Sum is greater than range.").
+        }
+        IMOYAKHAI{
+            FUNU("Sum is less than range.").
+        }
+    }
+    THANG 0.
+}

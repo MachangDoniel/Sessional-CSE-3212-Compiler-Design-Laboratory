@@ -1,0 +1,13 @@
+int main()
+{
+int a=0,b;
+return 0;
+}
+
+
+int main()
+{
+int a;
+float b=20;
+return 0;
+}
