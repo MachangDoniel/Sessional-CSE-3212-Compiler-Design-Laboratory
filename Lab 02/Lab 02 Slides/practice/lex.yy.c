@@ -286,17 +286,17 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 #define YY_END_OF_BUFFER 3
 static yyconst short int yy_accept[8] =
     {   0,
-        0,    0,    3,    1,    2,    1,    0
+        0,    0,    3,    2,    1,    1,    0
     } ;
 
 static yyconst int yy_ec[256] =
     {   0,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    2,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
-        1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
+        1,    1,    1,    1,    1,    1,    1,    2,    2,    2,
+        2,    2,    2,    2,    2,    2,    2,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
         1,    1,    1,    1,    1,    1,    1,    1,    1,    1,
@@ -328,12 +328,12 @@ static yyconst int yy_meta[3] =
 
 static yyconst short int yy_base[9] =
     {   0,
-        0,    0,    4,    0,    5,    0,    5,    2
+        0,    0,    4,    5,    0,    0,    5,    1
     } ;
 
 static yyconst short int yy_def[9] =
     {   0,
-        7,    1,    7,    8,    7,    8,    0,    7
+        7,    1,    7,    7,    8,    8,    0,    7
     } ;
 
 static yyconst short int yy_nxt[8] =
@@ -357,9 +357,13 @@ static char *yy_last_accepting_cpos;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "test.l"
+#line 1 "e3.l"
 #define INITIAL 0
-#line 363 "lex.yy.c"
+#line 2 "e3.l"
+#include <string.h>
+char s[10000];
+int i,j,k;
+#line 367 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -510,9 +514,9 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 3 "test.l"
+#line 6 "e3.l"
 
-#line 516 "lex.yy.c"
+#line 520 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -597,15 +601,28 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 4 "test.l"
-{printf("%s\n",yytext);}
+#line 7 "e3.l"
+{
+		strcpy(s,yytext);
+		for(j=k=i=0;i<strlen(s);i++)
+		{
+			if(s[i]=='0')
+			j++;
+			else
+			k++;
+		}
+		if(j%2==0&&k%2==1)
+		printf("correct\n");
+		else
+		printf("incorrect\n");
+	}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 5 "test.l"
+#line 22 "e3.l"
 ECHO;
 	YY_BREAK
-#line 609 "lex.yy.c"
+#line 626 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1491,15 +1508,16 @@ int main()
 	return 0;
 	}
 #endif
-#line 5 "test.l"
+#line 22 "e3.l"
 
 
-int yywrap(){
+int yywrap()
+{
 	return 1;
 }
 
-int main(){
-	yyin=fopen("lex.yy.c","r");
+int main()
+{
 	yylex();
 	return 0;
 }

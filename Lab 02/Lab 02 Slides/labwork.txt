@@ -1,0 +1,34 @@
+Design a language to detect:
+
+1. Number of variables declared.
+
+2. Number of statements declared.
+
+
+Sample input : int a, b; 
+		float b;
+		double c=10; return 0;
+
+output:
+        4 variables declared.
+	4 statements
+
+
+
+
+
+
+
+
+
+
+
+1. Sample input : int  abc;    		    (6)
+		float abc;
+
+output:      abc is already declared
+
+2. Detect a binary string to be correct as: (4)
+   Input : 110011	101010
+   Output:  Incorrect	Correct
+

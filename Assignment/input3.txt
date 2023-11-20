@@ -1,0 +1,2 @@
+int a,b,c,mx;
+float ab,bc,cd,ab;

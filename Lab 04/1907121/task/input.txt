@@ -1,0 +1,3 @@
+bison -d task.y
+flex task.l
+gcc task.tab.c lex.yy.c -o output
